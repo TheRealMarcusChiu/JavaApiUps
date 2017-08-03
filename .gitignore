@@ -1,0 +1,26 @@
+# sensitive property files
+marcus.chiu_build.properties
+
+# Ant build.xml stuff
+build/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+
+# custom
+SandBox*.java

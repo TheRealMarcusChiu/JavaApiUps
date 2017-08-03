@@ -1,0 +1,39 @@
+1. you will need to sign-up for UPS and to get 4 credentials in order to use their APIs
+   - username
+   - password
+   - access key
+   - account number (also known as shipping number)
+
+2. create own personal build.properties to place your 4 credentials
+   - first find your computer username via command "whoami"
+   - then create a file under the same directory as build.properties with name $(whoami)_build.properties
+   - in that file paste the following and fill in the blanks
+
+   accesskey=gibberish
+   username=gibberish
+   password=gibberish
+   accountnumber=gibberish
+
+2. UPS has given you 3 things:
+   - build.xml
+   - build.properties
+   - and the .xsd files located in /src/main/resources/xsd
+
+2. we will need a couple jar files
+   - jaxb-core-$(version).jar
+   - jaxb-impl-$(version).jar
+   - jaxb-jxc-$(version).jar
+   - jaxb-xjc-$(version).jar
+
+   - I have placed them in /jars/jaxb
+   - Also make sure the build.properties have "jaxb.home=jars/jaxb" like so
+
+   - to get those jar files you could uncomment the dependencies within the pom.xml
+   - then execute "mvn clean install" on terminal
+   - go to ~/.m2/repository folder and locate those jars and copy them into /jars/jaxb
+
+3. run Apache Ant on the build.xml
+   ~> ant
+
+   This will create the UPS java classes used to run the JaxbShipConfirmClient.java
+   these java classes will be placed in /src/main/java/com/ups/xolt/codesamples as specified in the build.properties
